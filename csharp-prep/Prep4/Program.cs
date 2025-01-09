@@ -7,6 +7,9 @@ class Program
     {
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");  // Prompt user for input
         List<int> numbers = new List<int>();  // Initialize a list
+        List<int> positiveNums = new List<int>();
+        
+        
         
         int sum = 0;  // Initialize sum variable
         
@@ -30,11 +33,21 @@ class Program
         double average = sum / ((double)numbers.Count);                         // Calculate average
         int maxNumber = numbers.Max();                                          // Find the largest number  
 
+        foreach (int number in numbers)
+        {
+            if(number > 0)
+            {
+                positiveNums.Add(number);
+            }
+        }
+
+        int smallestNum = positiveNums.Min();
         
         Console.WriteLine($"There are total numbers in list: {numbers.Count}"); // Output count of numbers
         Console.WriteLine($"The list contains: " + string.Join(", ", numbers)); // Output the list
         Console.WriteLine($"The sum is : {sum}");                               // Output the sum
         Console.WriteLine($"The average is: {average:F2}");                     // Output the average
         Console.WriteLine($"The largest number is: {maxNumber}");               // Output the largest number  
+        Console.WriteLine($"The smallest positive number is: {smallestNum}");   // output the smallest positive number
     }
 }
