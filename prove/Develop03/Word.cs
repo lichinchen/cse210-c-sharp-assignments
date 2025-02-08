@@ -19,7 +19,7 @@ public class Word             // Represents a word
         return _isHidden;     
     }
 
-    public string DisplayText()  // Return text or placeholder if hidden
+    public string DisplayWord()  // Return text or placeholder if hidden
     {
         if (_isHidden)           // Check if the word is hidden
         {
