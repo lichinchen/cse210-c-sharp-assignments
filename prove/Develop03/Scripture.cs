@@ -21,7 +21,7 @@ public class Scripture
 
     }
 
-    public void HideRandomWords(int count = 3)          // Hide random words
+    public void HideRandomWords(int count = 2)          // Hide random words
     {
         List<Word> visibleWords = new List<Word>();     // Visible words list
 
@@ -40,8 +40,7 @@ public class Scripture
 
         for (int i = 0; i < count && visibleWords.Count > 0; i++)  // Hide 'count' words
         {
-            Random random = new Random();                          // Random generator
-            int index = random.Next(0, visibleWords.Count);        // Get random index
+            int index = _random.Next(0, visibleWords.Count);        // Get random index
             Word randomWord = visibleWords[index];                 // Get word
             randomWord.Hide();                                     // Hide the word
             visibleWords.RemoveAt(index);                          // Remove from list
