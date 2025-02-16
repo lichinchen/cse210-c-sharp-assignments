@@ -53,26 +53,25 @@ public static class Library
                             "And they were called the people of God.";  
         verses.Add(new Scripture(mosiahReference, mosiahText));
         
-        Reference almaReference1 = new Reference("Alma", 5, 29, 33);
-        string almaText1 = "For behold, I will show you that this is a perfect plan of happiness...\n" +
+        Reference almaReference = new Reference("Alma", 5, 29, 33);
+        string almaText = "For behold, I will show you that this is a perfect plan of happiness...\n" +
                            "And now, my beloved brethren, I desire that ye should be even as I am.";  
-        verses.Add(new Scripture(almaReference1, almaText1));
+        verses.Add(new Scripture(almaReference, almaText));
         
         Reference moroniReference = new Reference("Moroni", 8, 21, 23);
         string moroniText = "And now, behold, I speak unto you concerning baptism...\n" +
                             "For behold, the Father, and the Son, and the Holy Ghost are one, and they are one God.";  
         verses.Add(new Scripture(moroniReference, moroniText));
         
-        Reference almaReference2 = new Reference("Alma", 43, 6, 8);
-        string almaText2 = "And it came to pass that the Lamanites did come down to battle against the Nephites...\n" +
-                           "And when the Nephites saw the Lamanites, they began to flee.";  
-        verses.Add(new Scripture(almaReference2, almaText2));
+        Reference nephiReference = new Reference("2 Nephi", 2, 25, 26);
+        string nephiText = "Adam fell that men might be; and men are, that they might have joy.\n" +
+                           "And the Messiah cometh in the fullness of time, that He may redeem the children of men.";  
+        verses.Add(new Scripture(nephiReference, nephiText));
         
-        Reference almaReference3 = new Reference("Alma", 39, 10, 11);  
-        string almaText3 = "Know ye not that these things are an abomination in the sight of the Lord;\n" +
-                           "yea, most abominable above all sins save it be the shedding of innocent blood, or denying the Holy Ghost?";  
-        verses.Add(new Scripture(almaReference3, almaText3));
- 
+        Reference jacobReference = new Reference("Jacob", 2, 18, 19);
+        string jacobText = "But before ye seek for riches, seek ye for the kingdom of God.\n" +
+                           "And after ye have obtained a hope in Christ, ye shall obtain riches if ye seek them.";  
+        verses.Add(new Scripture(jacobReference, jacobText));
 
         return verses;  
     }
