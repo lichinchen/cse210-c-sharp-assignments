@@ -1,16 +1,15 @@
 using System;                      // Import System
 using System.Collections.Generic;  // Import collections
 
-// Library class to manage scripture
 public static class Library
 {
-    private static Random _random = new Random();  // Random number generator
-    private static List<Scripture> _singleVerses = LoadSingleVerses();  // Load single verses
+    private static Random _random = new Random();                           // Random number generator
+    private static List<Scripture> _singleVerses = LoadSingleVerses();      // Load single verses
     private static List<Scripture> _multipleVerses = LoadMultipleVerses();  // Load multiple verses
 
-    private static List<Scripture> LoadSingleVerses()  // Load list of verses
+    private static List<Scripture> LoadSingleVerses()                       // Load list of verses
     {
-        List<Scripture> verses = new List<Scripture>();  // Initialize list
+        List<Scripture> verses = new List<Scripture>();                     // Initialize list
     
         // Add scriptures to list
         Reference nephiReference = new Reference("2 Nephi", 2, 25);
@@ -78,7 +77,7 @@ public static class Library
         return verses;  
     }
 
-    public static Scripture GetMultipleVerses()         // Get random multiple verses
+    public static Scripture GetMultipleVerses()           // Get random multiple verses
     {
         int index = _random.Next(_multipleVerses.Count);  // Get random index
         Scripture verse = _multipleVerses[index];         // Select verse

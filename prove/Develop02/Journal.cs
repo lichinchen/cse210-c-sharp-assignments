@@ -5,7 +5,7 @@ using System.IO;                  // File handling
 
 public class Journal  // The Journal class adds, displays, saves, and loads journal entries.
 {
-    private List<Entry> entries = new List<Entry>();  // List to store journal entries
+    private List<Entry> _entries = new List<Entry>();  // List to store journal entries
     private int entryCounter = 1;                     // Entry counter to keep track of entry numbers
 
     public Journal()  // Default constructor
@@ -17,7 +17,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
 
     public void AddEntry(string date, string prompt, string diaryText)  // Add a new journal entry to the list.
     {
-        foreach ( Entry entry in entries)                               // Iterate through existing entries
+        foreach ( Entry entry in _entries)                               // Iterate through existing entries
         {
             if (entry._entryDate == date && entry._entryPrompt == prompt && entry._entryDiaryText == diaryText)  // 2. Check if the entry already exists
             {
@@ -33,7 +33,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
 
         newEntry._entryNumber = entryCounter++;  // Assign a number and increment for the next entry
 
-        entries.Add(newEntry);                   // Add the new entry to the entries list.
+        _entries.Add(newEntry);                   // Add the new entry to the entries list.
         
     }
 
@@ -42,7 +42,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
     {
         Entry entryRemove = null;               // Declare a variable to store the entry to remove
 
-        foreach (Entry entry in entries)        // Iterate through all entries
+        foreach (Entry entry in _entries)        // Iterate through all entries
         {
             if (entry._entryNumber == entryNumber) // Find the entry by number
             {                                   
@@ -53,11 +53,11 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
         
         if (entryRemove != null)                // Check if an entry was found
         {
-            entries.Remove(entryRemove);        // Remove the entry from the list
+            _entries.Remove(entryRemove);        // Remove the entry from the list
             Console.WriteLine($"Entry {entryNumber} has been deleted successfully."); // Print success message
 
             RenumberEntry();                    // Renumber entries after deletion
-            entryCounter = entries.Count + 1;   // Update the entry counter
+            entryCounter = _entries.Count + 1;   // Update the entry counter
         }
 
         else
@@ -69,16 +69,16 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
 
     public void RenumberEntry()                 // Method to renumber entries after deletion
     {
-        for (int i = 0; i <entries.Count; i++)  // Iterate through the list
+        for (int i = 0; i <_entries.Count; i++)  // Iterate through the list
         {
-            entries[i]._entryNumber = i + 1;    // Set the entry number
+            _entries[i]._entryNumber = i + 1;    // Set the entry number
         }
     }
 
 
     public void DisplayEntries()                // Display all the journal entries.
     {
-        foreach (Entry entry in entries)       // Iterate through each entry in the entries list.
+        foreach (Entry entry in _entries)       // Iterate through each entry in the entries list.
         {
             entry.DisplayEntry();              // Call the entry's DisplayEntry() method 
             Console.WriteLine("-------------------------------------\n"); // Print a separator line for readability.
@@ -92,7 +92,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
         using (StreamWriter writer = new StreamWriter(filename))      // Create a StreamWriter to overwrite the file
         
         {
-            foreach (Entry entry in entries)                          // Iterate through entries
+            foreach (Entry entry in _entries)                          // Iterate through entries
             {
                 writer.WriteLine($"{entry._entryNumber} | {entry._entryDate} | {entry._entryPrompt} | {entry._entryDiaryText}");  // 2. Write each entry to the file
             }
@@ -132,9 +132,9 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
             }
         }
         entryCounter = maxNumber + 1;                                // Set the entry counter to the next available number
-        if (entries.Count > 0)                                       // If there are entries in the list
+        if (_entries.Count > 0)                                       // If there are entries in the list
         {
-            Entry lastEntry = entries[entries.Count - 1];            // Get the last entry
+            Entry lastEntry = _entries[_entries.Count - 1];            // Get the last entry
             lastEntry._entryNumber = entryCounter;                   // Set the new entry number
             entryCounter = entryCounter + 1;
            
@@ -172,7 +172,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
                     bool entryExists = false;               // Assume the entry doesn't exist.
 
                     
-                    foreach (var existingEntry in entries)  // Check if the entry already exists.
+                    foreach (var existingEntry in _entries)  // Check if the entry already exists.
                     {
                         // Check if the entry number matches
                         if (existingEntry._entryNumber == entry._entryNumber &&      // Match entry number
@@ -192,7 +192,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
                     }
                     else                                                             // Add the entry to the list
                     {
-                        entries.Add(entry);  
+                        _entries.Add(entry);  
 
                     }
                                        
@@ -204,7 +204,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
             } 
             entryCounter = maxNumber + 1;                   // Set next entry number
             Console.WriteLine("\nLoaded journal entries..."); // Notify user
-            foreach (Entry entry in entries)                // Display all loaded entries
+            foreach (Entry entry in _entries)                // Display all loaded entries
             {
                 Console.WriteLine($"{entry._entryNumber} | {entry._entryDate} | {entry._entryPrompt} | {entry._entryDiaryText}");
             }                                          
@@ -226,7 +226,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
             Console.Write("Enter the date of the journal entry you want to edit (yyyy-MM-dd): ");  // Ask the date to edit
             string dateToEdit = Console.ReadLine();          // Read input
 
-            foreach (Entry entry in entries)                 // Loop through entries 
+            foreach (Entry entry in _entries)                 // Loop through entries 
             {
                 if (entry._entryDate == dateToEdit)          // Match date  
                 {
@@ -240,7 +240,7 @@ public class Journal  // The Journal class adds, displays, saves, and loads jour
             Console.Write("Enter the entry number: ");      // Ask for number
             string numberInput = Console.ReadLine();        // Input as a string 
             int entryNumber = int.Parse(numberInput);       // Convert to an integer 
-            foreach (Entry entry in entries)                // Loop through entries
+            foreach (Entry entry in _entries)                // Loop through entries
             {
                 if (entry._entryNumber == entryNumber)      // Match number
                 {
