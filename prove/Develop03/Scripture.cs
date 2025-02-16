@@ -64,6 +64,15 @@ public class Scripture
         }
         return true;  // Return true if all words are hidden
     }
+    
+    public void ResetAllWords()  // Restore all words to visible state
+    {
+        foreach (Word word in _words)
+        {
+            word.Show();  
+        }
+    }
+
 
     public string DisplayText()
     {
