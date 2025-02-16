@@ -36,6 +36,11 @@ class Program
                 // Exit the program
                 break;
             }
+            else
+            {
+            Console.WriteLine("Invalid input. Please enter 1, 2, or 3.");
+            Console.ReadKey();
+            }        
         }
         Console.WriteLine("\nGame over! Press Enter to exit.");  // Inform user the game is over
         Console.ReadLine();                                      // Wait for user to press Enter to close
@@ -50,7 +55,11 @@ class Program
             // Clear the console for a fresh display
             Console.Clear();
 
+            // Hide random words from the scripture
+            scripture.HideRandomWords(); 
+
             // Display the current scripture text
+            Console.WriteLine();
             Console.WriteLine(scripture.DisplayText());
             Console.WriteLine("\nPress Enter to hide words, or type 'quit' to exit.");
 
@@ -59,9 +68,6 @@ class Program
             // If the user types "quit", break the loop and exit the game
             if (input.ToLower() == "quit")
                 break;
-
-            // Hide random words from the scripture
-            scripture.HideRandomWords();
 
             // If all words are hidden, notify the user and end the game
             if (scripture.AllWordsHidden())                                       // Check if all words are hidden
@@ -76,3 +82,11 @@ class Program
         }
     }
 }
+
+
+
+// The program exceeds the core requirements:
+// 1. My HideRandomWords() method makes sure only visible words are selected randomly for hiding.
+// 2. Number of visible words before/after hiding
+// 3. Create a scripture library and random display the single or mutilple verses.
+// 4. Create a menu for the user to select an option: 1. single verse 2. multiple verses 3. quit
