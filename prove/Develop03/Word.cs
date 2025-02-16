@@ -12,6 +12,13 @@ public class Word             // Represents a word
     public void Hide()        // Hide the word
     {
         _isHidden = true;     // Set hidden
+        Console.WriteLine("Word hidden: " + _text);
+    }
+
+    public void Show()        // Show the word
+    {
+        _isHidden = false;    // Set to visible
+        Console.WriteLine("Word shown: " + _text);
     }
 
     public bool IsHidden()    // Check if hidden
