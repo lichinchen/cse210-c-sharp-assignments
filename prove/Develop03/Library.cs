@@ -48,30 +48,31 @@ public static class Library
         List<Scripture> verses = new List<Scripture>();  // Initialize list
 
         // Add scriptures to list
-        Reference mosiahReference = new Reference("Mosiah", 18, 27, 29);
-        string mosiahText = "And they did come down into the waters of Mormon, and there were they baptized...\n" +
-                            "And they were called the people of God.";  
-        verses.Add(new Scripture(mosiahReference, mosiahText));
+        Reference matthewReference = new Reference("Matthew", 5, 3, 4);
+        string matthewText = "Blessed are the poor in spirit: for theirs is the kingdom of heaven.\n" +
+                             "Blessed are they that mourn: for they shall be comforted.";
+        verses.Add(new Scripture(matthewReference, matthewText));
         
-        Reference almaReference = new Reference("Alma", 5, 29, 33);
-        string almaText = "For behold, I will show you that this is a perfect plan of happiness...\n" +
-                           "And now, my beloved brethren, I desire that ye should be even as I am.";  
-        verses.Add(new Scripture(almaReference, almaText));
+        Reference johnReference = new Reference("John", 3, 16, 17);
+        string johnText = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.\n" +
+                          "For God sent not his Son into the world to condemn the world; but that the world through him might be saved.";
+        verses.Add(new Scripture(johnReference, johnText));
         
-        Reference moroniReference = new Reference("Moroni", 8, 21, 23);
-        string moroniText = "And now, behold, I speak unto you concerning baptism...\n" +
-                            "For behold, the Father, and the Son, and the Holy Ghost are one, and they are one God.";  
-        verses.Add(new Scripture(moroniReference, moroniText));
+        Reference romansReference = new Reference("Romans", 8, 28, 29);
+        string romansText = "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.\n" +
+                            "For whom he did foreknow, he also did predestinate to be conformed to the image of his Son, that he might be the firstborn among many brethren.";
+        verses.Add(new Scripture(romansReference, romansText));
         
-        Reference nephiReference = new Reference("2 Nephi", 2, 25, 26);
-        string nephiText = "Adam fell that men might be; and men are, that they might have joy.\n" +
-                           "And the Messiah cometh in the fullness of time, that He may redeem the children of men.";  
-        verses.Add(new Scripture(nephiReference, nephiText));
+        Reference psalmReference = new Reference("Psalm", 23, 1, 2);
+        string psalmText = "The Lord is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters.\n" +
+                           "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.";
+        verses.Add(new Scripture(psalmReference, psalmText));
         
-        Reference jacobReference = new Reference("Jacob", 2, 18, 19);
-        string jacobText = "But before ye seek for riches, seek ye for the kingdom of God.\n" +
-                           "And after ye have obtained a hope in Christ, ye shall obtain riches if ye seek them.";  
-        verses.Add(new Scripture(jacobReference, jacobText));
+        Reference isaiahReference = new Reference("Isaiah", 40, 30, 31);
+        string isaiahText = "Even the youths shall faint and be weary, and the young men shall utterly fall:\n" +
+                            "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.";
+        verses.Add(new Scripture(isaiahReference, isaiahText));
+
 
         return verses;  
     }
