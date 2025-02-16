@@ -49,6 +49,9 @@ class Program
     // Method for displaying scripture and hiding words
     static void RunGame(Scripture scripture)
     {
+        // Reset all words to visible 
+        scripture.ResetAllWords();
+        
         // Game loop - keeps hiding words until all are hidden or user quits
         while (true)
         {
