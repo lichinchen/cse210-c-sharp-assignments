@@ -33,8 +33,11 @@ public class Scripture
             }
         }
 
+        Console.WriteLine("Number of visible words before hiding: " + visibleWords.Count); 
+
         if (visibleWords.Count == 0)                    // No visible words
         {
+            Console.WriteLine("All words have been hidden.");
             return;                                     // Exit
         }
 
@@ -45,6 +48,8 @@ public class Scripture
             randomWord.Hide();                                     // Hide the word
             visibleWords.RemoveAt(index);                          // Remove from list
         }
+
+        Console.WriteLine("\nRemaining visible words before hiding: " + visibleWords.Count);
     }
 
     public bool AllWordsHidden()
