@@ -6,8 +6,7 @@ public class Scripture
     private static Random _random = new Random();  // Random generator
     private Reference _reference;                  // Scripture reference
     private List<Word> _words;                     // List of words
-    
-
+   
     public Scripture(Reference reference, string text)  // Constructor
     {
         _reference = reference;                         // Set reference
@@ -18,8 +17,8 @@ public class Scripture
             Word newWord = new Word(word);              // Create word object
             _words.Add(newWord);                        // Add to list
         }
-
     }
+
 
     public void HideRandomWords(int count = 2)          // Hide random words
     {
@@ -33,7 +32,7 @@ public class Scripture
             }
         }
 
-        Console.WriteLine("Number of visible words before hiding: " + visibleWords.Count); 
+        Console.WriteLine("Number of visible words before hiding: " + visibleWords.Count);
 
         if (visibleWords.Count == 0)                    // No visible words
         {
@@ -64,7 +63,7 @@ public class Scripture
         }
         return true;  // Return true if all words are hidden
     }
-    
+   
     public void ResetAllWords()  // Restore all words to visible state
     {
         foreach (Word word in _words)
@@ -73,16 +72,15 @@ public class Scripture
         }
     }
 
-
     public string DisplayText()
     {
         string result = _reference.FormatReference() + "\n";
-    
+   
         foreach (var word in _words)
         {
             result += word.DisplayWord() + " ";  // Add each word with a space
         }
-    
+   
         return result.Trim();  // Remove any extra space at the end
     }
 
