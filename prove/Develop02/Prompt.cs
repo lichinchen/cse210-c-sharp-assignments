@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class Prompt
 {
-    public List<string> _prompts;  // List of prompts
+    public List<string> prompts;  // List of prompts
     private Random randomPrompt;  // Random chooser
     public Prompt()  // Constructor
     {
-        _prompts = new List<string>()   // Set up prompts 
+        prompts = new List<string>()   // Set up prompts 
         {
         "What is one thing you are grateful for today?",
         "What is something new I learned today?",
@@ -27,7 +27,7 @@ public class Prompt
 
     public string PromptIndex()  // Get random prompt
     {
-        int promptIndex = randomPrompt.Next(_prompts.Count);  // Generate random index
-        return _prompts[promptIndex];  // Return prompt 
+        int promptIndex = randomPrompt.Next(prompts.Count);  // Generate random index
+        return prompts[promptIndex];  // Return prompt 
     } 
 }
