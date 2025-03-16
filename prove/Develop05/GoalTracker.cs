@@ -56,10 +56,10 @@ public class GoalTracker            // Class that manages goals
         int totalPoints = pointsGet + bonusPoints;                                            // total points by adding the base points (pointsGet) and bonus points
         _totalScore += totalPoints;                                                           // Updates the total score
 
-        if (chosenGoal is EternalGoal eternalGoal)
-        {
-            eternalGoal.AccumulatePoints();                                                   // Accumulate points for EternalGoal
-        }
+        //if (chosenGoal is EternalGoal eternalGoal)
+        //{
+        //    eternalGoal.AccumulatePoints();                                                   // Accumulate points for EternalGoal
+        //}
                                                                     
         Console.WriteLine($"\nCongratulations!");                                             // Display completion message                                          
         Console.WriteLine($"This time you earned {pointsGet} points!");                       // Show points earned
@@ -99,7 +99,6 @@ public class GoalTracker            // Class that manages goals
             writer.WriteLine(GetTotalScore());                    // Writes the total score to the file
         }
         
-        //using (StreamWriter writer = new StreamWriter(filename, true))
         using (StreamWriter writer = File.AppendText(filename))                              // Open file in append mode
         {
             foreach (Goal goal in _goals)                                                    // Loop through each goal in the list
