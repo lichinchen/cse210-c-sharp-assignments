@@ -34,8 +34,20 @@ public class GoalTracker            // Class that manages goals
         chosenGoal.RecordEvent();                                                             // Records the event for the selected goal
 
         int pointsGet = chosenGoal.GetPoints();                                               // Gets points for the selected goal
-        _totalScore += pointsGet;                                                             // Updates the total score
+        int bonusPoints = 0;                                                                  // Initialize bonus points 0
 
+        if (chosenGoal is ChecklistGoal checklistGoal)                                        // Check if the chosen goal is a ChecklistGoal
+        {
+            if (checklistGoal.GetIsCompleted())                                               // Check if the checklist goal is completed                                
+            {
+                bonusPoints = checklistGoal.GetBonusPoints();                                 // Get the bonus points 
+            }
+        }
+
+        int totalPoints = pointsGet + bonusPoints;                                            // total points by adding the base points (pointsGet) and bonus points
+        _totalScore += totalPoints;                                                           // Updates the total score
+
+                                                                    
         Console.WriteLine($"\nCongratulations!");                                             // Display completion message                                          
         Console.WriteLine($"This time you earned {pointsGet} points!");                       // Show points earned
         Console.WriteLine($"You now have total {_totalScore} points.");                       // Display updated total score
