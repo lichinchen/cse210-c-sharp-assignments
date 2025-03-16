@@ -31,6 +31,15 @@ public class GoalTracker            // Class that manages goals
         string input = Console.ReadLine();                                                    // Gets user input
         int numberGoal = int.Parse(input);                                                    // Converts input to an integer
         Goal chosenGoal = _goals[numberGoal - 1];                                             // It subtracts 1 because list indices are zero-based, but the user input is one-based.
+        
+        if (chosenGoal.GetIsCompleted())                                                      // Check if the goal is completed; if so, no points are awarded. 
+        {
+            Console.WriteLine($"{chosenGoal.GetName()} -- Goal is already completed!");
+            Console.WriteLine("This time you earned 0 points!");
+            Console.WriteLine("Please choose another goal to do.");
+            return;
+        }
+
         chosenGoal.RecordEvent();                                                             // Records the event for the selected goal
 
         int pointsGet = chosenGoal.GetPoints();                                               // Gets points for the selected goal
@@ -47,6 +56,10 @@ public class GoalTracker            // Class that manages goals
         int totalPoints = pointsGet + bonusPoints;                                            // total points by adding the base points (pointsGet) and bonus points
         _totalScore += totalPoints;                                                           // Updates the total score
 
+        if (chosenGoal is EternalGoal eternalGoal)
+        {
+            eternalGoal.AccumulatePoints();                                                   // Accumulate points for EternalGoal
+        }
                                                                     
         Console.WriteLine($"\nCongratulations!");                                             // Display completion message                                          
         Console.WriteLine($"This time you earned {pointsGet} points!");                       // Show points earned

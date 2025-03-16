@@ -10,16 +10,18 @@ public class SimpleGoal : Goal  // Inherits from Goal class
 
     public override void RecordEvent()      // Override method to record event completion
     {
+        
         // Check if the goal is already completed to stop it from being completed again
         if (!GetIsCompleted())              // Check if the goal is incomplete
         {
             SetIsCompleted(true);           // Mark as completed
-            //_oneTimePoints = GetPoints();   // Set the points to the one-time points
-            Console.WriteLine($"{GetName()} -- Goal completed! You earned {GetPoints()} points.");  // Show completion message
+            Console.WriteLine($"{GetName()} -- Goal completed! You earned {GetPoints()} points.");  // Show completion message   
         }
         else
         {
             Console.WriteLine($"{GetName()} -- Goal is already completed!");  // Inform the goal is already completed
+            Console.WriteLine("This time you earned 0 points!");              // Inform no points.
+            Console.WriteLine("Please choose the other goals to do.");
         }
     }
 
