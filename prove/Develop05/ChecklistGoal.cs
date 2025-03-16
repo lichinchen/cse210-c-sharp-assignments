@@ -46,7 +46,6 @@ public class ChecklistGoal : Goal  // Inherits from Goal class
             _currentCount++;                                      // Increase current count
             Console.WriteLine($"{GetName()} -- Goal recorded!");  // Show progress
             Console.WriteLine($"Progress: {_currentCount}/{_targetCount}.");
-            Console.WriteLine($"You earned {CountTotalPoints()} points.");
         }
         
         if (_currentCount >= _targetCount)                         // Check if target count is reached
