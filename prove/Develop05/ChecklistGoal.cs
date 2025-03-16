@@ -56,6 +56,7 @@ public class ChecklistGoal : Goal  // Inherits from Goal class
             Console.WriteLine($"You earned a bonus of {_bonusPoints} points!");
             Console.WriteLine($"Total points earned: {CountTotalPoints()}");
         }
+        Console.WriteLine($"Current count: {_currentCount}, Target count: {_targetCount}, Completed: {GetIsCompleted()}");
     }
 
 
