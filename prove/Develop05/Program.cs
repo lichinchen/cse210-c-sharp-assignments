@@ -1,5 +1,11 @@
 using System;  // Basic system
 
+// exceeds the assignment requirements:
+// 1. Check if the goal is already completed and prevent duplicate point awards.
+// 2. I added the feature to count how many times the Eternal Goal is completed and track the points earned.
+// 3. I made it so the user can see the points earned each time a goal is completed, along with the details of the points.
+
+
 class Program
 {
     static void Main(string[] args)
