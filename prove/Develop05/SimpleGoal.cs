@@ -2,19 +2,19 @@ using System;                   // Basic system
 
 public class SimpleGoal : Goal  // Inherits from Goal class
 {
-    private int _oneTimePoints;
     public SimpleGoal(string goalName, string description, int goalPoints) 
-        : base(goalName, description, goalPoints)   // Constructor calls base class constructor
+        : base(goalName, description, goalPoints)   
     {
-        _oneTimePoints = 0;
+        // Constructor calls base class constructor
     }
 
-    public override void RecordEvent()  // Override method to record event completion
+    public override void RecordEvent()      // Override method to record event completion
     {
         // Check if the goal is already completed to stop it from being completed again
-        if (!GetIsCompleted())      // Check if the goal is incomplete
+        if (!GetIsCompleted())              // Check if the goal is incomplete
         {
-            SetIsCompleted(true);   // Mark as completed
+            SetIsCompleted(true);           // Mark as completed
+            //_oneTimePoints = GetPoints();   // Set the points to the one-time points
             Console.WriteLine($"{GetName()} -- Goal completed! You earned {GetPoints()} points.");  // Show completion message
         }
         else
@@ -23,24 +23,19 @@ public class SimpleGoal : Goal  // Inherits from Goal class
         }
     }
 
-    public int OneTimePoints()
-    {
-        return _oneTimePoints + GetPoints();
-    }
-
     public override string GetStatus()  // Override method to display goal status
     {
         if (GetIsCompleted())           // Check if the goal is completed
         {
-            return $"[x] {GetName()} --- ({GetDescription()}) --- {OneTimePoints()} points";  // Return completed status
+            return $"[x] {GetName()} --- ({GetDescription()}) --- {GetPoints()} points";  // Return completed status
         }
         else
         {
-            return $"[ ] {GetName()} --- ({GetDescription()}) --- {_oneTimePoints} points";  // Return incomplete status
+            return $"[ ] {GetName()} --- ({GetDescription()}) --- 0 points";                  // Return incomplete status
         }
     }
 
-    public override string FormatGoal()                          // Formats details of SimpleGoal
+    public override string FormatGoal()                                                       // Formats details of SimpleGoal
     {
         return $"SimpleGoal: {GetName()} | {GetDescription()} | {GetPoints()} | {GetIsCompleted()}";
     }
