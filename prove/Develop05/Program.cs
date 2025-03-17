@@ -1,11 +1,11 @@
 using System;  // Basic system
 
-// exceeds the assignment requirements:
-// 1. Check if the goal is already completed and prevent duplicate point awards.
-// 2. I added the feature to count how many times the Eternal Goal is completed and track the points earned.
-// 3. I am storing the accumulated points and the number of times the EternalGoal has been executed in a file (still working on how to download these two numbers).
-// 4. I made it so the user can see the points earned each time a goal is completed, along with the details of the points.
-
+// Goes beyond the assignment:
+// 1. Checks if a goal is already done so points are not given twice.
+// 2. Adds a way to count how many times the Eternal Goal is finished and track the total points. (Show on screen)
+// 3. Saves the total points(AccumulatePoint) and how many times the Eternal Goal was done in a file.
+// 4. Load from the file to show Eternal Goal the total points(AccumulatePoint) and times completed.
+// 5. Show Score detail (Each goal)
 
 class Program
 {
