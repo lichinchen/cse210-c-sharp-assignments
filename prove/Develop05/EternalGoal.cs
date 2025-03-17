@@ -17,6 +17,11 @@ public class EternalGoal : Goal  // Inherits from Goal class
         return _count;  
     }
 
+    public void SetCount(int count)
+    {
+        _count = count;
+    }
+
     public void AccumulatePoints()
     {
         _totalPoints += GetPoints();   // Add points per event
@@ -26,6 +31,11 @@ public class EternalGoal : Goal  // Inherits from Goal class
     public int GetTotalPoints()        // returns the total accumulated points
     {
         return _totalPoints;
+    }
+
+     public void SetTotalPoints(int totalPoints) 
+    {
+        _totalPoints = totalPoints;  
     }
 
     public override void RecordEvent()  // Record each event
@@ -61,6 +71,8 @@ public class EternalGoal : Goal  // Inherits from Goal class
         int totalPoints = int.Parse(parts[3].Trim());                   // Total accumulated points
         int count = int.Parse(parts[4].Trim());                         // Completion count
         EternalGoal goal = new EternalGoal(name, description, points);  // Create goal
+        goal.SetTotalPoints(totalPoints);
+        goal.SetCount(count);
         return goal;                                                    // Return goal
     }
 
