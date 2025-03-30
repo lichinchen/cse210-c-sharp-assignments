@@ -16,9 +16,10 @@ public class Event
     private string _date;
     private string _time;
     private Address _address;
+    private string _type;
 
     // Constructor
-    public Event(string title, string description, string date, string time, Address address)
+    public Event(string title, string description, string date, string time, Address address, string type)
     {
         // Assigns title, description, date, time, address value
         _title = title;
@@ -26,6 +27,7 @@ public class Event
         _date = date;
         _time = time;
         _address = address;
+        _type = type;
     }
 
     // Returns standard event details
@@ -37,12 +39,12 @@ public class Event
     // Returns full event details
     public virtual string GetFullDetails()
     {
-        return $"{GetStandardDetails()}\nEvent Type: {GetType().Name}";
-    }
+        return $"{GetStandardDetails()}\nEvent Type: {_type}";   
+    }                                                                     
 
     // Returns a short event details
     public string GetShortDescription()
     {
-        return $"Event Type: {GetType().Name}\nName: {_title}\nDate: {_date}";
+        return $"Event Type: {_type}\nName: {_title}\nDate: {_date}";
     }
 }
