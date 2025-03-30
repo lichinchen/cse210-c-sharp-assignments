@@ -12,8 +12,8 @@ public class OutdoorGathering : Event
     private string _weatherForecast;  // Store the weather forecast
 
     // Constructor
-    public OutdoorGathering(string title, string description, string date, string time, Address address, string weatherForecast)
-        : base(title, description, date, time, address)  // Call base class constructor
+    public OutdoorGathering(string title, string description, string date, string time, Address address, string type, string weatherForecast)
+        : base(title, description, date, time, address, type)  // Call base class constructor
     {
         _weatherForecast = weatherForecast;  // Set the weather forecast value
     }
