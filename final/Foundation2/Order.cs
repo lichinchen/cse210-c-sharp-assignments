@@ -64,16 +64,25 @@ public class Order
     // Method to get packing label
     public string PackingLabel()
     {
-        string label = "Packing Label:\n";                               // Start packing label string
-        foreach (Product product in _products)                           // Loop through products
+        string label = "--- Packing Label: ---\n";                                              // Start packing label string
+        foreach (Product product in _products)                                          // Loop through products
         {
-            string productName = $"Product Name: {product.GetName()}";   // Get product name
-            string productId = $"Product ID: {product.GetProductNo()}";  // Get product number
-            string productInfo = productName + ", " + productId + "\n";  // Format product info
+            string productName = $"- Product: {product.GetName()}";                       // Get product name
+            string productId = $"- Product ID: {product.GetProductNo()}";                 // Get product number
+            string productQuantity = $"- Quantity: {product.GetQuantity()}";              // Get product quantity
+            string productPrice = $"- Unit Price: ${product.GetPrice():F2}";              // Get product unit price
+            string productTotal = $"- Total Price: ${product.ComputeProductTotal():F2}";  // Calculate total price for this product
+
+            string productInfo = $"{productName}\n{productId}\n{productQuantity}\n{productPrice}\n{productTotal}\n"; // Format product info
             
-            label += productInfo;                                        // Add product info to label
+            label += productInfo;                                                       // Add product info to label
+            label += "\n"; 
         }
-        return label;                                                    // Return packing label
+
+        double shippingCost = ShippingCost();                                           // Calculate shipping cost
+        label += $"\n- Shipping Cost: ${shippingCost:F2}\n";                              // Add shipping cost to label
+    
+        return label; 
     }
 
     // Method to get shipping label
