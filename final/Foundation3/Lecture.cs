@@ -14,8 +14,8 @@ public class Lecture : Event
     private int _capacity;    // Event's capacity
 
     // Constructor
-    public Lecture(string title, string description, string date, string time, Address address, string speaker, int capacity)
-        : base(title, description, date, time, address)  // Call base class constructor
+    public Lecture(string title, string description, string date, string time, Address address, string type, string speaker, int capacity)
+        : base(title, description, date, time, address, type)  // Call base class constructor
     {
         _speaker = speaker;    // Set the speaker's name
         _capacity = capacity;  // Set the event's capacity
