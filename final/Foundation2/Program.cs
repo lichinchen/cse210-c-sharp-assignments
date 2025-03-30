@@ -53,7 +53,7 @@ class Program
 
 
         // Print details
-        Console.WriteLine("\nOrder 1:");                                    // Print label for order 1
+        Console.WriteLine("\nOrder 1:\n");                                    // Print label for order 1
         Console.WriteLine(order1.PackingLabel());                           // Print packing label for order 1
         Console.WriteLine(order1.ShippingLabel());                          // Print shipping label for order 1
         Console.WriteLine($"Total Price: ${order1.GetFinalPrice():F2}");    // Print total price for order 1
