@@ -12,8 +12,8 @@ public class Reception : Event
     private string _email;  // Stores the email
 
     // Constructor
-    public Reception(string title, string description, string date, string time, Address address, string Email)
-        : base(title, description, date, time, address)   // Calls base class constructor
+    public Reception(string title, string description, string date, string time, Address address, string type, string Email)
+        : base(title, description, date, time, address, type)   // Calls base class constructor
     {
         _email = Email;  // Sets the email
     }
