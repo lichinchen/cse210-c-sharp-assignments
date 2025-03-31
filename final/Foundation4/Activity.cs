@@ -1,5 +1,11 @@
 using System;  // Import system namespace
 
+// Stores Activity Information: _date, _minutes 
+// Constructor
+// Get Minutes
+// Abstract Methods: Distance(), Speed(), and Pace()
+// Get Summary
+
 public abstract class Activity
 {
     private string _date;  // Stores the date
