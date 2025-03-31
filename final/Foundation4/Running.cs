@@ -1,28 +1,41 @@
+using System;  // Import system namespace
+
+// Inherits from Activity
+// Stores Distance
+// Constructor
+// Returns Distance
+// Calculates Speed
+// Calculates Pace
+
+// Running class inherits from Activity
 public class Running : Activity
 {
-    private double _distance;
+    private double _distance;  // Stores the distance 
 
+    // Constructor
     public Running(string date, int minutes, double distance) 
-        : base(date, minutes)
+        : base(date, minutes)   // Call the base class constructor
     {
-        _distance = distance;
+        _distance = distance;  // Set the distance
     }
 
+    // Override Distance method
     public override double Distance()
     {
-        return _distance;
+        return _distance;  // Return the distance
     }
 
+    // Override Speed method
     public override double Speed()
     {
-        //return (_distance / _minutes) * 60; // Speed in miles per hour
-        double distancePerMinute = _distance / GetMinutes(); 
-        double speed = distancePerMinute * 60; 
-        return speed; 
+        double distancePerMinute = _distance / GetMinutes();   // Calculate distance per minute
+        double speed = distancePerMinute * 60;                 // Convert to miles per hour
+        return speed;                                          // Return the speed
     }
 
+    // Override Pace method
     public override double Pace()
     {
-        return 60 / (_distance / GetMinutes()); // Pace in minutes per mile
+        return 60 / (_distance / GetMinutes());                // Pace in minutes per mile
     }
 }
