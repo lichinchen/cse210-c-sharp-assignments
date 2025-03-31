@@ -14,9 +14,9 @@ class Program
         // Create an empty list of Activity objects
         List<Activity> activities = new List<Activity>();
 
-        Running running = new Running("2025-4-03", 30, 3.0);       // Create a Running object
-        Cycling cycling = new Cycling("2025-5-03", 30, 15.0);      // Create a Cycling object
-        Swimming swimming = new Swimming("2025-6-03", 30, 20);     // Create a Swimming object
+        Running running = new Running("2025-4-03", 120, 3);        // Create a Running object
+        Cycling cycling = new Cycling("2025-4-04", 90, 15);        // Create a Cycling object
+        Swimming swimming = new Swimming("2025-4-05", 60, 20);     // Create a Swimming object
 
         activities.Add(running);     // Add the Running to the list
         activities.Add(cycling);     // Add the Cycling to the list
