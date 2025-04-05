@@ -20,12 +20,14 @@ public class Running : Activity
     }
 
     // Override Distance method
+    // Returns the distance directly
     public override double Distance()
     {
         return _distance;  // Return the distance
     }
 
     // Override Speed method
+    // Calculates speed
     public override double Speed()
     {
         double distancePerMinute = _distance / GetMinutes();   // Calculate distance per minute
@@ -34,6 +36,7 @@ public class Running : Activity
     }
 
     // Override Pace method
+    // Calculates pace
     public override double Pace()
     {
         return 60 / (_distance / GetMinutes());                // Pace in minutes per mile

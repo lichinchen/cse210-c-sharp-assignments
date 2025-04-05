@@ -20,18 +20,21 @@ public class Cycling : Activity
     }
 
     // Override Distance method
+    // Calculates distance 
     public override double Distance()
     {
         return _speed * GetMinutes() / 60;   // Distance in miles (speed * time in hours)
     }
 
     // Override Speed method
+    // Returns the speed directly
     public override double Speed()
     {
         return _speed;  // Return the speed value
     }
     
     // Override Pace method
+    // Calculates pace
     public override double Pace()
     {
         return 60 / _speed;   // Pace in minutes per mile

@@ -33,7 +33,7 @@ public abstract class Activity
     // Abstract for calculating pace
     public abstract double Pace();
 
-    // Get a summary of the activity
+    // Get a formatted summary of the activity
     public string GetSummary()
     {                                                             // GetType().Name--Get the object's type name
         return $"{_date} {GetType().Name} ({_minutes} min)\n" +   // Return the date, activity type, and minutes 

@@ -21,12 +21,14 @@ public class Swimming : Activity
     }
 
     // Override Distance method
+    // Calculates distance
     public override double Distance()
     {
         return _laps * 50 / 1000.0 * 0.62;  // Convert laps to miles
     }
 
     // Override Speed method
+    // Calculates speed
     public override double Speed()
     {
         double distancePerMinute = Distance() / GetMinutes();  // Calculate distance per minute
@@ -35,6 +37,7 @@ public class Swimming : Activity
     }
 
     // Override Pace method
+    // Calculates pace
     public override double Pace()
     {
         return 60 / Speed();  // Pace in minutes per mile
