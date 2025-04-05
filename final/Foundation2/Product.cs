@@ -9,39 +9,47 @@ using System;  // Import System namespace
 public class Product
 {
     // Private field 
-    private string _name;
+    private string _productName;
     private string _productNo;
     private double _price;
     private int _quantity;
 
     // Constructor
-    public Product(string name, string productNo, double price, int quantity)
+    public Product(string productName, string productNo, double price, int quantity)
     {
-        _name = name;
+        _productName = productName;
         _productNo = productNo;
         _price = price;
         _quantity = quantity;
     }
 
-    // Getter for Name
-    public string GetName()
+    // Getter for ProductName
+    // Used in Order.cs
+    // To show product name in order summary
+    public string GetProductName()
     {
-        return _name;
+        return _productName;
     }
 
     // Getter for ProductNo
+    // Used in Order.cs
+    // To show product number in packing label
     public string GetProductNo()
     {
         return _productNo;
     }
 
     // Getter for Price
+    // Used in Order class
+    // To get the price of one item
     public double GetPrice()
     {
         return _price;
     }
 
     // Getter for Quantity
+    // Used in Order class
+    // To get how many items the customer wants
     public int GetQuantity()
     {
         return _quantity;
