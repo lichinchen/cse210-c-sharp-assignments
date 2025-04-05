@@ -19,12 +19,14 @@ public class Customer
     }
 
     // Getter for Name
+    // When making a label to know the customer's name 
     public string GetName()
     {
         return _name;
     }
 
     // Getter for Address
+    // To get the shipping address in the Order class
     public Address GetAddress()
     {
         return _address;
