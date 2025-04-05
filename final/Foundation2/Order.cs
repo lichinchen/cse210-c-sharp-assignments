@@ -67,7 +67,7 @@ public class Order
         string label = "--- Packing Label: ---\n";                                              // Start packing label string
         foreach (Product product in _products)                                          // Loop through products
         {
-            string productName = $"- Product: {product.GetName()}";                       // Get product name
+            string productName = $"- Product: {product.GetProductName()}";                       // Get product name
             string productId = $"- Product ID: {product.GetProductNo()}";                 // Get product number
             string productQuantity = $"- Quantity: {product.GetQuantity()}";              // Get product quantity
             string productPrice = $"- Unit Price: ${product.GetPrice():F2}";              // Get product unit price
@@ -80,7 +80,7 @@ public class Order
         }
 
         double shippingCost = ShippingCost();                                           // Calculate shipping cost
-        label += $"\n- Shipping Cost: ${shippingCost:F2}\n";                              // Add shipping cost to label
+        label += $"* Shipping Cost: ${shippingCost:F2}\n";                              // Add shipping cost to label
     
         return label; 
     }
@@ -92,6 +92,6 @@ public class Order
         string name = _customer.GetName();                               // Get customer name
         string address = _customer.GetAddress().FullAddress();           // Get customer address
     
-        return $"{label}{name}\n{address}\n";                            // Return formatted shipping label
+        return $"{label}\nTo: {name}\n{address}\n";                            // Return formatted shipping label
     }
 }
