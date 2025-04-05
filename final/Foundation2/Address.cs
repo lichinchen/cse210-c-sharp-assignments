@@ -23,34 +23,12 @@ public class Address            // Define a class called Address
         _zipCode = zipCode;
     }
 
-    // Getter for Street
-    public string GetStreet()
-    {
-        return _street;
-    }
-
-    // Getter for City
-    public string GetCity()
-    {
-        return _city;
-    }
-
-    // Getter for State
-    public string GetState()
-    {
-        return _state;
-    }
-
     // Getter for Country
+    // To check if the customer lives in USA or another country
+    // Used in the Order class → ShippingCost() method
     public string GetCountry()
     {
         return _country;
-    }
-
-    // Getter for ZipCode
-    public string GetZipCode()
-    {
-        return _zipCode;
     }
 
     // Method to get full address
