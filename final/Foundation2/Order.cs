@@ -64,14 +64,14 @@ public class Order
     // Method to get packing label
     public string PackingLabel()
     {
-        string label = "--- Packing Label: ---\n";                                              // Start packing label string
+        string label = "--- Packing Label: ---\n";                                      // Start packing label string
         foreach (Product product in _products)                                          // Loop through products
         {
-            string productName = $"- Product: {product.GetProductName()}";                       // Get product name
-            string productId = $"- Product ID: {product.GetProductNo()}";                 // Get product number
-            string productQuantity = $"- Quantity: {product.GetQuantity()}";              // Get product quantity
-            string productPrice = $"- Unit Price: ${product.GetPrice():F2}";              // Get product unit price
-            string productTotal = $"- Total Price: ${product.ComputeProductTotal():F2}";  // Calculate total price for this product
+            string productName = $"- Product: {product.GetProductName()}";              // Get product name
+            string productId = $"- Product ID: {product.GetProductNo()}";               // Get product number
+            string productQuantity = $"- Quantity: {product.GetQuantity()}";            // Get product quantity
+            string productPrice = $"- Unit Price: ${product.GetPrice():F2}";            // Get product unit price
+            string productTotal = $"- Subtotal: ${product.ComputeProductTotal():F2}";   // Calculate total price for this product
 
             string productInfo = $"{productName}\n{productId}\n{productQuantity}\n{productPrice}\n{productTotal}\n"; // Format product info
             
@@ -92,6 +92,24 @@ public class Order
         string name = _customer.GetName();                               // Get customer name
         string address = _customer.GetAddress().FullAddress();           // Get customer address
     
-        return $"{label}\nTo: {name}\n{address}\n";                            // Return formatted shipping label
+        return $"{label}\nTo: {name}\n{address}\n";                      // Return formatted shipping label
+    }
+
+    // Method to calculate estimated delivery date
+    public string DeliveryDate()
+    {
+        DateTime DeliveryDate;
+        string country = _customer.GetAddress().GetCountry().ToLower();
+
+        if (country == "usa")                         // Check if the customer is in the USA
+        {
+            DeliveryDate = DateTime.Now.AddDays(3);   // 3-5 business days for USA
+        }
+        else
+        {
+            DeliveryDate = DateTime.Now.AddDays(7);   // 7-14 business days for international
+        }
+
+        return $"Estimated Delivery Date: {DeliveryDate:dd-MM-yyyy}";
     }
 }

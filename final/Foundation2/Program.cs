@@ -53,25 +53,29 @@ class Program
 
 
         // Print details
-        Console.WriteLine("\nOrder 1:\n");                                    // Print label for order 1
+        Console.WriteLine("\nOrder 1:\n");                                  // Print label for order 1
         Console.WriteLine(order1.PackingLabel());                           // Print packing label for order 1
         Console.WriteLine(order1.ShippingLabel());                          // Print shipping label for order 1
-        Console.WriteLine($"Total Price: ${order1.GetFinalPrice():F2}");    // Print total price for order 1
+        Console.WriteLine(order1.DeliveryDate());                           // Print estimated delivery date for order 1
+        Console.WriteLine($"Total Amount: ${order1.GetFinalPrice():F2}");    // Print total price for order 1
         Console.WriteLine("\n------------------------------------");
         Console.WriteLine("\nOrder 2:");                                    
         Console.WriteLine(order2.PackingLabel());                           
-        Console.WriteLine(order2.ShippingLabel());                          
-        Console.WriteLine($"Total Price: ${order2.GetFinalPrice():F2}");    
+        Console.WriteLine(order2.ShippingLabel()); 
+        Console.WriteLine(order2.DeliveryDate());                                                  
+        Console.WriteLine($"Total Amount: ${order2.GetFinalPrice():F2}");    
         Console.WriteLine("\n------------------------------------");
         Console.WriteLine("\nOrder 3:");                                    
         Console.WriteLine(order3.PackingLabel());                           
-        Console.WriteLine(order3.ShippingLabel());                          
-        Console.WriteLine($"Total Price: ${order3.GetFinalPrice():F2}");    
+        Console.WriteLine(order3.ShippingLabel());    
+        Console.WriteLine(order3.DeliveryDate());                                                 
+        Console.WriteLine($"Total Amount: ${order3.GetFinalPrice():F2}");    
         Console.WriteLine("\n------------------------------------");
         Console.WriteLine("\nOrder 4:");                                    
         Console.WriteLine(order4.PackingLabel());                           
-        Console.WriteLine(order4.ShippingLabel());                          
-        Console.WriteLine($"Total Price: ${order4.GetFinalPrice():F2}");    
+        Console.WriteLine(order4.ShippingLabel());   
+        Console.WriteLine(order4.DeliveryDate());                                               
+        Console.WriteLine($"Total Amount: ${order4.GetFinalPrice():F2}");    
         Console.WriteLine("\n------------------------------------");
     }
 }
