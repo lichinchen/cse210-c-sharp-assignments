@@ -1,32 +1,36 @@
 using System;                       // Import system namespace
 using System.Collections.Generic;   // For the list
 
-// Creates a List of Activities
 // Creates Activity Objects
 // Adds Activities to the List
-// Loops Through Activities
-// Prints Activity Summary
+// Call DisplaySummaries()
+// Output total time
 
 class Program
 {
     static void Main()
     {
-        // Create an empty list of Activity objects
-        List<Activity> activities = new List<Activity>();
+        // Creates a new instance of ActivityManager
+        ActivityManager activities = new ActivityManager();         
 
-        Running running = new Running("2025-4-03", 120, 3);        // Create a Running object
-        Cycling cycling = new Cycling("2025-4-04", 90, 15);        // Create a Cycling object
-        Swimming swimming = new Swimming("2025-4-05", 60, 20);     // Create a Swimming object
+        // Create a Running, Cycling, Swimming object
+        Running running = new Running("2025-4-03", 120, 3);        
+        Cycling cycling = new Cycling("2025-4-04", 90, 15);        
+        Swimming swimming = new Swimming("2025-4-05", 60, 20);     
 
-        activities.Add(running);     // Add the Running to the list
-        activities.Add(cycling);     // Add the Cycling to the list
-        activities.Add(swimming);    // Add the Swimming to the list
+         // Adds the running, cycling, swimming activity to the ActivityManager's list
+        activities.AddActivity(running);
+        activities.AddActivity(cycling);
+        activities.AddActivity(swimming);
 
-        // Loop through each activity in the list
-        foreach (Activity activity in activities)
-        {
-            // Print the summary of each activity
-            Console.WriteLine(activity.GetSummary());
-        }
+        // Displays summaries of all activities in the list
+        activities.DisplaySummaries();
+
+        // Prints total exercise time in minutes
+        Console.WriteLine($"You've exercised for a total of {activities.TotalOfMinutes()} minutes.\n");
+
+        // Prints total time in hours and minutes
+        Console.WriteLine($"Total Time: {activities.TimeFormatted()}\n");
+
     }
 }
