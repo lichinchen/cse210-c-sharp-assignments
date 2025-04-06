@@ -47,4 +47,16 @@ public class Event
     {
         return $"Event Type: {_type}\nName: {_title}\nDate: {_date}";
     }
+
+    public string Countdown()
+    {
+        DateTime datePart = DateTime.Parse(_date);                         // Parse the date string 
+        DateTime timePart = DateTime.Parse(_time);                         // Parse the time string
+        DateTime eventDateTime = datePart.Date + timePart.TimeOfDay;       // Combine the date and time
+        DateTime now = DateTime.Now;                                       // Get the current system time
+        TimeSpan timeRemaining = eventDateTime - now;                      // Calculate the remaining time until the event
+
+        // Format and return the countdown string
+        return $"{timeRemaining.Days} days, {timeRemaining.Hours} hours, {timeRemaining.Minutes} minutes remaining.";
+    }
 }
