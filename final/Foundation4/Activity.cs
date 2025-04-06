@@ -35,10 +35,12 @@ public abstract class Activity
 
     // Get a formatted summary of the activity
     public string GetSummary()
-    {                                                             // GetType().Name--Get the object's type name
-        return $"{_date} {GetType().Name} ({_minutes} min)\n" +   // Return the date, activity type, and minutes 
-               $"- Distance: {Distance():F2} miles\n" +           // Format distance with 2 decimal 
-               $"- Speed: {Speed():F2} mph\n" +                   // Format speed with 2 decimal 
-               $"- Pace: {Pace():F2} min/mile\n";                 // Format pace with 2 decimal 
+    {                                                                       // GetType().Name--Get the object's type name
+        string summary = $"{_date} {GetType().Name} ({_minutes} min)\n" +   // Return the date, activity type, and minutes 
+                         $"- Distance: {Distance():F2} miles\n" +           // Format distance with 2 decimal 
+                         $"- Speed: {Speed():F2} mph\n" +                   // Format speed with 2 decimal 
+                         $"- Pace: {Pace():F2} min/mile\n";                 // Format pace with 2 decimal 
+        return summary;
     } 
+    
 }
