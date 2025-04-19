@@ -61,21 +61,14 @@ public class Order
         return shippingCost;                                             // Return shipping cost
     }
 
-    // Method to get packing label
+    // Method to get packing label 
+    // Encapsulated product information
     public string PackingLabel()
     {
         string label = "--- Packing Label: ---\n";                                      // Start packing label string
         foreach (Product product in _products)                                          // Loop through products
         {
-            string productName = $"- Product: {product.GetProductName()}";              // Get product name
-            string productId = $"- Product ID: {product.GetProductNo()}";               // Get product number
-            string productQuantity = $"- Quantity: {product.GetQuantity()}";            // Get product quantity
-            string productPrice = $"- Unit Price: ${product.GetPrice():F2}";            // Get product unit price
-            string productTotal = $"- Subtotal: ${product.ComputeProductTotal():F2}";   // Calculate total price for this product
-
-            string productInfo = $"{productName}\n{productId}\n{productQuantity}\n{productPrice}\n{productTotal}\n"; // Format product info
-            
-            label += productInfo;                                                       // Add product info to label
+            label += product.GetPackingDetails();                                       // using Product's method to add formatted product details
             label += "\n"; 
         }
 
