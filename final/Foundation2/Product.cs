@@ -61,4 +61,16 @@ public class Product
         double itemTotal = _price * _quantity;
         return itemTotal;
     }
+
+    // Formatted product details for packing label
+    public string GetPackingDetails()
+    {
+        return $"- Product: {_productName}\n" +
+               $"- Product ID: {_productNo}\n" +
+               $"- Quantity: {_quantity}\n" +
+               $"- Unit Price: ${_price:F2}\n" +
+               $"- Subtotal: ${ComputeProductTotal():F2}\n";
+    }
+
+
 }
